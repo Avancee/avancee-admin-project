@@ -1,0 +1,9 @@
+## server
+server:
+  port: 8080
+## redis
+spring:
+  redis:
+    host: byference.com
+    port: 6379
+    password: your-password
