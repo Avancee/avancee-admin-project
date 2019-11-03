@@ -7,13 +7,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * SecurityConfiguration
+ * DefaultWebSecurityConfiguration
  *
  * @author byference
  * @since 2019-11-02
  */
 @Configuration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class DefaultWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     @Override
@@ -28,4 +28,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/oauth/*").permitAll();
     }
+
 }
