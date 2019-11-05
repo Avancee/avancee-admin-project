@@ -1,26 +1,26 @@
-package com.github.avancee.admin.modules.system.entity;
+package com.github.avancee.admin.modules.system.vo;
 
+import com.github.avancee.admin.modules.system.entity.SysUser;
 import lombok.Data;
 
-import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * SysUser
+ * SysUserVO
  *
+ * @see SysUser
  * @author byference
- * @since 2019-11-03
+ * @since 2019-11-04
  */
 @Data
-public class SysUser implements Serializable {
+public class SysUserVO implements Serializable {
 
-    private static final long serialVersionUID = -7852291356750769449L;
+    private static final long serialVersionUID = -7888983370662950830L;
 
     /**
      * 主键ID
      */
-    @Id
     private Integer id;
 
     /**
@@ -77,5 +77,6 @@ public class SysUser implements Serializable {
      * 修改时间
      */
     private Date modifyDate;
+
 
 }

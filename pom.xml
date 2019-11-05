@@ -18,11 +18,13 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <oauth2.version>2.3.7.RELEASE</oauth2.version>
+        <oauth2.version>2.3.2.RELEASE</oauth2.version>
         <mysql.version>5.1.48</mysql.version>
         <mybatis.version>2.1.1</mybatis.version>
         <fastjson.version>1.2.62</fastjson.version>
         <mysql.version>8.0.13</mysql.version>
+        <mapper.version>2.1.5</mapper.version>
+        <pagehelper.version>1.2.12</pagehelper.version>
     </properties>
 
     <dependencies>
@@ -56,7 +58,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -81,6 +82,18 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>4.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${mapper.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.version}</version>
         </dependency>
 
     </dependencies>

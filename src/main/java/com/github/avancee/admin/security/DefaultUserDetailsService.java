@@ -4,7 +4,6 @@ import com.github.avancee.admin.modules.system.entity.SysUser;
 import com.github.avancee.admin.modules.system.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -31,8 +30,7 @@ public class DefaultUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("账号不存在");
         }
         // 授权 GrantedAuthority
-        return new User(sysUser.getUserName(), sysUser.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
+        return new AvanceeUserDetails(sysUser, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
     }
 
 }

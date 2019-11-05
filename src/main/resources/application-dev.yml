@@ -14,3 +14,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   mapper-locations: classpath*:/mapper/**/*.xml
+mapper:
+  mappers:
+    - tk.mybatis.mapper.common.Mapper
+  notEmpty: true
+  checkExampleEntityClass: true
+  safe-delete: true
+  safe-update: true

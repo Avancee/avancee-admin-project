@@ -33,4 +33,13 @@ public interface SecurityConst {
      */
     int REFRESH_TOKEN_VALIDITY_SECONDS = 3600 * 8;
 
+    /**
+     * anonymous user
+     */
+    String ANONYMOUS_USER = "anonymousUser";
+
+    /**
+     * account status
+     */
+    int ACCOUNT_LOCKED = 2;
 }
