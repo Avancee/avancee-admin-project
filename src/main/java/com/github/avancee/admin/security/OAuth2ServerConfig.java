@@ -1,5 +1,7 @@
 package com.github.avancee.admin.security;
 
+import com.github.avancee.admin.security.handler.DefaultAccessDeniedHandler;
+import com.github.avancee.admin.security.handler.DefaultAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -38,7 +40,10 @@ public class OAuth2ServerConfig {
 
         @Override
         public void configure(ResourceServerSecurityConfigurer resources) {
-            resources.resourceId(ADMIN_RESOURCE_ID).stateless(true);
+            resources.resourceId(ADMIN_RESOURCE_ID)
+                    .stateless(true)
+                    .authenticationEntryPoint(new DefaultAuthenticationEntryPoint())
+                    .accessDeniedHandler(new DefaultAccessDeniedHandler());
         }
 
         @Override
@@ -49,7 +54,9 @@ public class OAuth2ServerConfig {
                     .and()
                     .anonymous()
                     .and()
-                    .authorizeRequests().antMatchers("/order/**").authenticated();
+                    .authorizeRequests()
+                    //.antMatchers("/anonymous/**").permitAll()
+                    .anyRequest().authenticated();
         }
     }
 
