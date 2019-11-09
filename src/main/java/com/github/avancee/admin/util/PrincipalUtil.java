@@ -18,17 +18,19 @@ public class PrincipalUtil {
 
     private PrincipalUtil() {}
 
+    /**
+     * get login user ID
+     */
+    public static String getCurrentUserName() {
+        return isLogin() ? ((AvanceeUserDetails) getPrincipal()).getUsername() : null;
+    }
 
     /**
      * get login user ID
      */
     public static Integer getCurrentUserId() {
 
-        if (isLogin()) {
-            AvanceeUserDetails avanceeUserDetails = (AvanceeUserDetails) getPrincipal();
-            return avanceeUserDetails.getId();
-        }
-        return null;
+        return isLogin() ? ((AvanceeUserDetails) getPrincipal()).getId() : null;
     }
 
     /**
