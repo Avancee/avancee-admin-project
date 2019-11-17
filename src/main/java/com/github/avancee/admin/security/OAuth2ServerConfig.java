@@ -2,6 +2,7 @@ package com.github.avancee.admin.security;
 
 import com.github.avancee.admin.security.handler.DefaultAccessDeniedHandler;
 import com.github.avancee.admin.security.handler.DefaultAuthenticationEntryPoint;
+import com.github.avancee.admin.security.handler.DefaultLogoutSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -56,7 +57,8 @@ public class OAuth2ServerConfig {
                     .and()
                     .authorizeRequests()
                     //.antMatchers("/anonymous/**").permitAll()
-                    .anyRequest().authenticated();
+                    .anyRequest().authenticated()
+                    .and().logout().logoutSuccessHandler(new DefaultLogoutSuccessHandler());
         }
     }
 
